@@ -17,8 +17,13 @@ app.use(cors({
 ))
 app.use(cookieParser())
 app.use('/api/auth' , authRoutes)
+app.get("/", (req, res) => res.send("Connected to Backend"));
 
-mongoose.connect('mongodb://127.0.0.1:27017/authentication')
-app.listen(process.env.PORT , ()=>{
-    console.log("server is running");
+mongoose.connect(process.env.MONGODB_URI).then(()=>{
+const PORT = process.env.PORT || 3000
+    app.listen(PORT , ()=>{
+        console.log("server is running");
 })
+}).catch((err)=>{console.log(err)});
+
+//mongodb://127.0.0.1:27017/authentication
