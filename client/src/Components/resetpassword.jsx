@@ -64,7 +64,7 @@ function resetpassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post(`http://localhost:3000/api/auth/reset-password/${token}`, { // Include token in the URL
+    Axios.post(`https://mern-2-tvyo.onrender.com/api/auth/reset-password/${token}`, { // Include token in the URL
       password,
     })
       .then(response => {
