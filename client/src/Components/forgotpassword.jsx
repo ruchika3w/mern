@@ -14,7 +14,7 @@ function forgotpassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:3000/api/auth/forgot-password", {
+    Axios.post("https://mern-2-tvyo.onrender.com/api/auth/forgot-password", {
       email,
     })
       .then(response => {
