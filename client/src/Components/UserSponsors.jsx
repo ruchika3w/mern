@@ -12,7 +12,7 @@ const UserSponsors = ({ userId }) => {
       console.log("UserSponserID from fetchUserSponsors: ", UserSponserID);
       // localStorage.setItem("userSponserId",sponserId);
       try {
-        const response = await axios.get('http://localhost:3000/api/auth/my-team', {
+        const response = await axios.get('https://mern-2-tvyo.onrender.com/api/auth/my-team', {
           params: {
             sponsorId: UserSponserID
           }
