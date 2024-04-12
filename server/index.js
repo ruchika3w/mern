@@ -19,9 +19,10 @@ app.use(cookieParser())
 app.use('/api/auth' , authRoutes)
 app.get("/", (req, res) => res.send("Connected to Backend"));
 
-mongoose.connect('mongodb+srv://2003010173:gpaxA8zeO4FZwy6q@cluster0.lehwwzk.mongodb.net/
-').then(()=>{
-//const PORT = process.env.PORT || 3000
+ mongoose.connect(process.env.MONGODB_URI).then(()=>{
+
+//mongoose.connect("mongodb://127.0.0.1:27017/authentication").then(()=>{
+ const PORT = process.env.PORT || 3000
     app.listen(process.env.PORT , ()=>{
         console.log("server is running");
 })
