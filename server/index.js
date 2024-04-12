@@ -21,7 +21,7 @@ app.get("/", (req, res) => res.send("Connected to Backend"));
 
 mongoose.connect('mongodb+srv://2003010173:gpaxA8zeO4FZwy6q@binary-testing.q9tezyp.mongodb.net/binary-testing?retryWrites=true&w=majority&appName=binary-testing').then(()=>{
 //const PORT = process.env.PORT || 3000
-    app.listen(PORT , ()=>{
+    app.listen(3000 , ()=>{
         console.log("server is running");
 })
 }).catch((err)=>{console.log(err)});
