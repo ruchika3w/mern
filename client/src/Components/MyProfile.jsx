@@ -8,7 +8,7 @@ const MyProfile = () => {
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    Axios.get("http://localhost:3000/api/auth/user-profile")
+    Axios.get("https://mern-2-tvyo.onrender.com/api/auth/user-profile")
       .then(response => {
         setUserData(response.data);
       })
