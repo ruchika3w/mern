@@ -15,7 +15,7 @@ function adminlogin() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:3000/api/auth/login", {
+    Axios.post("https://mern-2-tvyo.onrender.com/api/auth/login", {
       email,
       password,
     })
