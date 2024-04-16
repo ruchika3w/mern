@@ -6,7 +6,7 @@ const Myteam = () => {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://localhost:3000/api/auth/myteam')
+    Axios.get('https://mern-2-tvyo.onrender.com/api/auth/myteam')
       .then(response => {
         setUserData(response.data);
       })
