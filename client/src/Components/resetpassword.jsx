@@ -64,7 +64,7 @@ function resetpassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post(`https://mern-2-tvyo.onrender.com/api/auth/reset-password/${token}`, { // Include token in the URL
+    Axios.post(`http://localhost:3000/api/auth/reset-password/${token}`, { // Include token in the URL
       password,
     })
       .then(response => {
@@ -80,7 +80,7 @@ function resetpassword() {
 
   return (
     <div className="login-page">
-      <h1>Reset Password</h1>
+      <h2>Reset Password</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="password">Password</label>
