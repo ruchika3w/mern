@@ -11,7 +11,7 @@ function Login() {
 
   const handleLogin = async (email, password) => {
     try {
-      const response = await axios.post('https://mern-2-tvyo.onrender.com/api/auth/login', { email, password });
+      const response = await axios.post('http://localhost:3000/api/auth/login', { email, password });
       if (response.data.status) {
         setLoggedIn(true);
         setUserId(response.data.userId); // Store user ID
@@ -31,7 +31,7 @@ function Login() {
 
   return (
     <div className="login-page">
-      <h1>Login</h1>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
