@@ -6,7 +6,7 @@ const Myteam = () => {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    Axios.get('https://mern-2-tvyo.onrender.com/api/auth/myteam')
+    Axios.get('http://localhost:3000/api/auth/myteam')
       .then(response => {
         setUserData(response.data);
       })
@@ -18,15 +18,15 @@ const Myteam = () => {
 
   return (
     <div>
-      <h1>My Team</h1>
+      <h2>My Team</h2>
       <table>
         <thead>
           <tr>
             <th>User ID</th>
-            <th>Sponsor ID</th>
-            <th>Sponsor Name</th>
             <th>Level</th>
             <th>Name</th>
+            <th>Sponsor ID</th>
+            <th>Sponsor Name</th>
             <th>Position</th>
 
           </tr>
@@ -35,10 +35,10 @@ const Myteam = () => {
           {userData.map(user => (
             <tr key={user.userId}>
               <td>{user.userId}</td>
-              <td>{user.sponsorId}</td>
-              <td>{user.sponsorName}</td>
               <td>{user.level}</td>
               <td>{user.name}</td>
+              <td>{user.sponsorId}</td>
+              <td>{user.sponsorName}</td>
               <td>{user.position}</td>
             </tr>
           ))}
