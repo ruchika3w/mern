@@ -237,18 +237,30 @@ router.post('/reset-password/:token', async (req, res) => {
 
 const verifyUser = async (req, res, next) => {
   try {
+    // Retrieve the token from the request cookies
     const token = req.cookies.token;
+
+    // Check if token exists
     if (!token) {
+      // If no token is found, return 401 Unauthorized
       return res.status(401).json({ error: "Unauthorized - no token provided" });
     }
+
+    // Verify the token using the secret key
     const decoded = await jwt.verify(token, process.env.KEY);
-    req.decoded = decoded; // Make decoded data available for the route
+
+    // Make decoded data available for the route handlers
+    req.decoded = decoded;
+
+    // Call next to proceed to the next middleware/route handler
     next();
   } catch (err) {
+    // If token verification fails, return 401 Unauthorized
     console.error(err);
     return res.status(401).json({ error: "Unauthorized - invalid token" });
   }
 };
+
 
 // Route to fetch user profile
 router.get('/user-profile', verifyUser, async (req, res) => {
