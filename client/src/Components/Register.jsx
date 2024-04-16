@@ -21,7 +21,7 @@ function Register() {
   const handleSponsorName = async (id) => {
     await axios({
       method: "get",
-      url: "http://localhost:3000/api/auth/getUserNameById",
+      url: "https://mern-2-tvyo.onrender.com/api/auth/getUserNameById",
       params: {
         id: id,
       },
@@ -40,7 +40,7 @@ function Register() {
     e.preventDefault();
     // alert("registerd successfully");
     try {
-      const res = await axios.post("http://localhost:3000/api/auth/register", {
+      const res = await axios.post("https://mern-2-tvyo.onrender.com/api/auth/register", {
         name,
         username,
         email,
