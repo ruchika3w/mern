@@ -21,7 +21,7 @@ const MyProfile = () => {
 
   return (
     <div className="container">
-      <h1>My Profile</h1>
+      <h2>My Profile</h2>
 
       <div className="profile-section">
         <p>Username: {userData.username}</p>
