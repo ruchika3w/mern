@@ -4,9 +4,10 @@ const router = express.Router();
 import { User } from "../models/User.js";
 import { Admin } from '../models/Admin.js';
 import {TeamHierarchyModel} from '../models/TeamHierarchy.js';
-import jwt from "jsonwebtoken";
+//import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 import { v4 as uuid } from "uuid";
+const jwt = require('jsonwebtoken');
 
 
 const generateUserId = (username) => {
@@ -206,6 +207,34 @@ router.post('/reset-password/:token', async (req, res) => {
   }
 });
 
+// const verifyUser = async (req, res, next) => {
+//   try {
+//     const token = req.cookies.token;
+//     if (!token) {
+//       return res.status(401).json({ error: "Unauthorized - no token provided" });
+//     }
+//     const decoded = await jwt.verify(token, process.env.KEY);
+//     req.decoded = decoded; // Make decoded data available for the route
+//     next();
+//   } catch (err) {
+//     console.error(err);
+//     return res.status(401).json({ error: "Unauthorized - invalid token" });
+//   }
+// };
+
+// // Route to fetch user profile
+// router.get('/user-profile', verifyUser, async (req, res) => {
+//   try {
+//     // Assuming you store user details in the JWT payload during login
+//     const { username, email,name, userId } = req.decoded; // Access decoded data from the request object
+//     console.log('Decoded user:', username, email,name, userId );
+//     return res.json({ username, email,name, userId }); // Return username, email, and userId in the response
+//   } catch (err) {
+//     console.error(err);
+//     return res.json({ error: "Failed to fetch user profile" });
+//   }
+// });
+
 const verifyUser = async (req, res, next) => {
   try {
     const token = req.cookies.token;
@@ -225,15 +254,14 @@ const verifyUser = async (req, res, next) => {
 router.get('/user-profile', verifyUser, async (req, res) => {
   try {
     // Assuming you store user details in the JWT payload during login
-    const { username, email,name, userId } = req.decoded; // Access decoded data from the request object
-    console.log('Decoded user:', username, email,name, userId );
-    return res.json({ username, email,name, userId }); // Return username, email, and userId in the response
+    const { username, email, name, userId } = req.decoded; // Access decoded data from the request object
+    console.log('Decoded user:', username, email, name, userId);
+    return res.json({ username, email, name, userId }); // Return username, email, and userId in the response
   } catch (err) {
     console.error(err);
-    return res.json({ error: "Failed to fetch user profile" });
+    return res.status(500).json({ error: "Failed to fetch user profile" });
   }
 });
-
 
 router.get('/myteam', async (req, res) => {
   try {
