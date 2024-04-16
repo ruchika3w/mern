@@ -4,10 +4,10 @@ const router = express.Router();
 import { User } from "../models/User.js";
 import { Admin } from '../models/Admin.js';
 import {TeamHierarchyModel} from '../models/TeamHierarchy.js';
-//import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 import { v4 as uuid } from "uuid";
-const jwt = require('jsonwebtoken');
+//onst jwt = require('jsonwebtoken');
 
 
 const generateUserId = (username) => {
