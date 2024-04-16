@@ -21,7 +21,7 @@ function Register() {
   const handleSponsorName = async (id) => {
     await axios({
       method: "get",
-      url: "https://mern-2-tvyo.onrender.com/api/auth/getUserNameById",
+      url: "http://localhost:3000/api/auth/getUserNameById",
       params: {
         id: id,
       },
@@ -40,7 +40,7 @@ function Register() {
     e.preventDefault();
     // alert("registerd successfully");
     try {
-      const res = await axios.post("https://mern-2-tvyo.onrender.com/api/auth/register", {
+      const res = await axios.post("http://localhost:3000/api/auth/register", {
         name,
         username,
         email,
@@ -82,7 +82,7 @@ function Register() {
   };
   return (
     <div className="registration-form">
-      <h1>Register</h1>
+      <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
