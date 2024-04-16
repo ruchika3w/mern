@@ -1,0 +1,85 @@
+.home-container {
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+ 
+  }
+  
+  .background-animation {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, #ff8a00, #e52e71, #1e90ff, #3cb371, #ff1493, #ff8a00);
+    background-size: 800% 800%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  h1 {
+    font-size: 36px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .description {
+    font-size: 18px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttons a:hover {
+    background-color: #0056b3;
+  }
+  
+  .home-container.show {
+    .background-animation {
+      opacity: 0.5;
+    }
+  
+    h1,
+    .description,
+    .buttons {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+ 
