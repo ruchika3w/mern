@@ -14,7 +14,7 @@ function forgotpassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post("https://mern-2-tvyo.onrender.com/api/auth/forgot-password", {
+    Axios.post("http://localhost:3000/api/auth/forgot-password", {
       email,
     })
       .then(response => {
@@ -29,7 +29,7 @@ function forgotpassword() {
   };
   return (
     <div className="login-page">
-      <h1>FORGOT PASSWORD</h1>
+      <h2>FORGOT PASSWORD</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
